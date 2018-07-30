@@ -15,9 +15,9 @@
 #define SEND_FREQUENCY 50
 #define MAX_TRANSMISSION_COUNT 2
 
-#define ACK 2
-#define ON_COMMAND 1
 #define OFF_COMMAND 0
+#define ON_COMMAND 1
+#define ACK 2
 
 module SmartLightsC @safe() {
   uses {
@@ -37,8 +37,6 @@ implementation {
   /**************** FUNCTIONS  AND VARIABLES DECLARATION ************************************/
   void sendPacket(uint16_t cmd, uint16_t dest, uint16_t address);
   void sendNext();
-  void startSend();
-  void startController();
   void initRoutingTable();
   void readyState();
   void patternState();
@@ -65,9 +63,12 @@ implementation {
     if (err == SUCCESS) {
       printf("[%u]: Start mote\n", TOS_NODE_ID);
 
-	initRoutingTable();
+	    initRoutingTable();
+
+      // Inizialize the patterns of the controller and set the state
       if(TOS_NODE_ID == CONTROLLER) {
-		    startController();
+		    initPatterns();
+        readyState();
       }
     }
     else {
@@ -83,71 +84,6 @@ implementation {
     }
   }
 
-  // Send a packet with parameters [cmd, dest] to the mote with the given address
-  void sendPacket(uint16_t cmd, uint16_t dest, uint16_t address) {
-  	msg_t* m = (msg_t*)call Packet.getPayload(&packet, sizeof(msg_t));
-
-    printf("[%u]: Send packet {command:%u, destination:%u} to %u\n", TOS_NODE_ID, cmd, dest, address);
-
-    m->commandCode = cmd;
-	  m->destination = dest;
-    
-    if(call AMSend.send(address, &packet, sizeof(msg_t)) == SUCCESS) {
-	locked = TRUE;
-    }
-  }
-
-  // Send the next message waiting in the queue
-  void sendNext() {
-    msg_t m;
-
-    call Timer1.stop();
-
-    if(locked) return;
-
-    if(transmissionCount == MAX_TRANSMISSION_COUNT && !queueEmpty()) {
-	printf("Controller: message has been transmitted too many times, it will be discarded\n");
-	transmissionCount = 0;
-	dequeue();
-    }
-
-    if(!queueEmpty()) {
-      m = peek();
-     
-      switch(m.commandCode) {
-        case ON_COMMAND: printf("Controller: Turn on light %u\n", m.destination); break;
-        case OFF_COMMAND: printf("Controller: Turn off light %u\n", m.destination); break;
-        default: break;
-      }
-
-      sendPacket(m.commandCode, m.destination, routingTable[m.destination]);
-	transmissionCount++;
-	call Timer1.startOneShot(500);
-    } else {
-      if(state == WAITING_STATE) readyState();
-      else if(state == PATTERN_STATE) waitingState();
-    }
-  }
-
-  // Start sending the messages stored in the queue
-  void startSend() {
-    sendNext();
-  }
-
-  event void Timer1.fired() {
-    printf("Controller: Timer expired, retransmit message\n");
-    sendNext();
-  }
-
-  /********************* CONTROLLER *****************************************/
-
-  // Initialize the routing table and the patterns used by the controller
-  void startController() {
-    //initRoutingTable();
-    initPatterns();
-    readyState();
-  }
-
   void initRoutingTable() {
     routingTable[0] = AM_BROADCAST_ADDR;
     routingTable[1] = 1;
@@ -160,6 +96,62 @@ implementation {
     routingTable[8] = 8;
     routingTable[9] = 8;
     routingTable[10] = 8;
+  }
+
+  // Send a packet with parameters [cmd, dest] to the mote with the given address
+  void sendPacket(uint16_t cmd, uint16_t dest, uint16_t address) {
+  	msg_t* m = (msg_t*)call Packet.getPayload(&packet, sizeof(msg_t));
+
+    printf("[%u]: Send packet {command:%u, destination:%u} to %u\n", TOS_NODE_ID, cmd, dest, address);
+
+    m->commandCode = cmd;
+	  m->destination = dest;
+    
+    if(call AMSend.send(address, &packet, sizeof(msg_t)) == SUCCESS) {
+	    locked = TRUE;
+    }
+  }
+
+  /********************* CONTROLLER *****************************************/
+
+  // Send the next message waiting in the queue
+  void sendNext() {
+    msg_t m;
+
+    call Timer1.stop();
+
+    if(locked) return;
+
+    if(transmissionCount == MAX_TRANSMISSION_COUNT && !queueEmpty()) {
+	    printf("Controller: message has been transmitted too many times, it will be discarded\n");
+	    transmissionCount = 0;
+	    dequeue();
+    }
+
+    if(!queueEmpty()) {
+      m = peek();
+     
+      switch(m.commandCode) {
+        case ON_COMMAND: printf("Controller: Turn on light %u\n", m.destination); break;
+        case OFF_COMMAND: printf("Controller: Turn off light %u\n", m.destination); break;
+        default: break;
+      }
+
+      sendPacket(m.commandCode, m.destination, routingTable[m.destination]);
+	    transmissionCount++;
+
+      // Timer for retransmission
+	    call Timer1.startOneShot(500);
+
+    } else {
+      if(state == WAITING_STATE) readyState();
+      else if(state == PATTERN_STATE) waitingState();
+    }
+  }
+
+  event void Timer1.fired() {
+    printf("[%u]: Timer expired, retransmit message\n", TOS_NODE_ID);
+    sendNext();
   }
 
   void readyState() {
@@ -191,7 +183,7 @@ implementation {
     }
 
     nextPattern = (nextPattern + 1) % N_PATTERNS;
-    startSend();
+    sendNext(); // start sending the messages
   }
 
   void waitingState() {
@@ -201,15 +193,6 @@ implementation {
     call Leds.led2On();
     printf("Controller: Waiting state\n");
     call Timer0.startOneShot(WAITING_TIME); // Transition to the ready state
-  }
-
-  event void Timer0.fired() {
-    switch(state) {
-      case READY_STATE: patternState(); break;
-      case PATTERN_STATE: break;
-      case WAITING_STATE: turnOffAllLights(); break;
-      default: break;
-    }
   }
 
   void turnOffAllLights() {
@@ -222,7 +205,16 @@ implementation {
       m.destination = p.lights[i];
       enqueue(m);
     }
-    startSend();
+    sendNext();
+  }
+
+  event void Timer0.fired() {
+    switch(state) {
+      case READY_STATE: patternState(); break;
+      case PATTERN_STATE: break;
+      case WAITING_STATE: turnOffAllLights(); break;
+      default: break;
+    }
   }
 
   /***************************** LIGHT *********************************************************/
@@ -240,12 +232,14 @@ implementation {
   }
 
   void sendAck() {
-        uint16_t next = TOS_NODE_ID -1;
-        if(TOS_NODE_ID == 2 || TOS_NODE_ID == 5 || TOS_NODE_ID == 8) {
-		next = CONTROLLER;
-	}
-	printf("[%u]: Send ack to controller \n", TOS_NODE_ID);
-	sendPacket(ACK, CONTROLLER, next);
+    uint16_t next = TOS_NODE_ID -1;
+
+    // If the mote can reach the controller
+    if(TOS_NODE_ID == routingTable[TOS_NODE_ID]) {
+		  next = CONTROLLER;
+	  }
+    printf("[%u]: Send ack to controller \n", TOS_NODE_ID);
+    sendPacket(ACK, CONTROLLER, next);
   }
 
   // Handle the command received
@@ -254,14 +248,14 @@ implementation {
 
     switch(cmd) {
       case OFF_COMMAND: {
-            	call Leds.led0Off(); 
-		sendAck();
-		break;
+        call Leds.led0Off(); 
+		    sendAck();
+		    break;
       }
       case ON_COMMAND: {
-		call Leds.led0On(); 
-		sendAck();
-		break;
+		    call Leds.led0On(); 
+		    sendAck();
+		    break;
       }
       default: break;
     }
@@ -277,35 +271,33 @@ implementation {
 
       printf("[%u]: Received packet {command:%u, destination:%u}\n", TOS_NODE_ID, m->commandCode, m->destination);
 
-	if(TOS_NODE_ID == CONTROLLER) {
-		if(m->commandCode == ACK) {
-			dequeue();
-			transmissionCount = 0;
-			sendNext();
-		}
- 	}
+      if(TOS_NODE_ID == CONTROLLER) {
+        if(m->commandCode == ACK) {
+          dequeue();
+          transmissionCount = 0;
+          sendNext();
+        }
+      }
+      else {
+        /*
+          Three cases:
 
-	else {
+          1) the mote is the destination of the message -> handle the message
+          2) the message is a broadcast message -> handle it and then forward
+          3) otherwise just forward the messsage to the next mote
 
-	      /*
-		Three cases:
-
-		1) the mote is the destination of the message -> handle the message
-		2) the message is a broadcast message -> handle it and then forward
-		3) otherwise just forward the messsage to the next mote
-
-	      */
-	      if(m->destination == TOS_NODE_ID) {
-		handleCommand(m->commandCode);
-	      }
-	      else if(m->destination == AM_BROADCAST_ADDR) {
-	      	handleCommand(m->commandCode);
-		      forwardPacket(m->commandCode, m->destination);
-	      }
-	      else {
-		forwardPacket(m->commandCode, m->destination);
-	      }
-	}
+        */
+        if(m->destination == TOS_NODE_ID) {
+          handleCommand(m->commandCode);
+        }
+        else if(m->destination == AM_BROADCAST_ADDR) {
+          handleCommand(m->commandCode);
+          forwardPacket(m->commandCode, m->destination);
+        }
+        else {
+          forwardPacket(m->commandCode, m->destination);
+        }
+      }
 
       return bufPtr;
     }
