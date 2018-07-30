@@ -230,6 +230,8 @@ implementation {
   // Send the packet to the next mote
   void forwardPacket(uint16_t cmd, uint16_t dest) {
     uint16_t next = TOS_NODE_ID < dest? TOS_NODE_ID + 1 : TOS_NODE_ID - 1;
+
+    // If the mote is can reach the controller
     if(dest == CONTROLLER && routingTable[TOS_NODE_ID] == TOS_NODE_ID) {
 	next = CONTROLLER;
     }
