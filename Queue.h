@@ -25,4 +25,8 @@ bool queueEmpty() {
     return size == 0;
 }
 
+msg_t peek() {
+   return queue[front];
+}
+
 #endif
