@@ -173,7 +173,11 @@ implementation {
     call Leds.led1On();
     call Leds.led2Off();
 
-    printf("Controller: Start pattern %s\n", p.name);
+    printf("Controller: Start pattern %s (nodes: [", p.name);
+    for(i = 0; i < p.size; i++) {
+      printf("%u", p.lights[i]);
+    }
+    printf("] )");
 
     // Turn on all the lights in the pattern
     for(i = 0; i < p.size; i++) { 
