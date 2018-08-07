@@ -176,8 +176,9 @@ implementation {
     printf("Controller: Start pattern %s (nodes: [", p.name);
     for(i = 0; i < p.size; i++) {
       printf("%u", p.lights[i]);
+      if(i != p.size - 1) printf(", ");
     }
-    printf("] )");
+    printf("] )\n");
 
     // Turn on all the lights in the pattern
     for(i = 0; i < p.size; i++) { 

@@ -1,0 +1,476 @@
+00:04.160	ID:8	[8]: Start mote
+00:04.323	ID:2	[2]: Start mote
+00:04.338	ID:6	[6]: Start mote
+00:04.435	ID:4	[4]: Start mote
+00:04.469	ID:1	[1]: Start mote
+00:04.470	ID:1	Controller: Ready state
+00:04.489	ID:7	[7]: Start mote
+00:04.644	ID:10	[10]: Start mote
+00:04.795	ID:9	[9]: Start mote
+00:04.802	ID:5	[5]: Start mote
+00:04.986	ID:3	[3]: Start mote
+00:14.239	ID:1	Controller: Start pattern Cross (nodes: [10, 8, 6, 4, 2] )
+00:14.240	ID:1	Controller: Turn on light 10
+00:14.243	ID:1	[1]: Send packet {command:1, destination:10} to 8
+00:14.253	ID:8	[8]: Received packet {command:1, destination:10}
+00:14.255	ID:8	[8]: Forward packet to 9
+00:14.257	ID:8	[8]: Send packet {command:1, destination:10} to 9
+00:14.265	ID:9	[9]: Received packet {command:1, destination:10}
+00:14.266	ID:9	[9]: Forward packet to 10
+00:14.269	ID:9	[9]: Send packet {command:1, destination:10} to 10
+00:14.279	ID:10	[10]: Received packet {command:1, destination:10}
+00:14.280	ID:10	[10]: Handle command: 1
+00:14.282	ID:10	[10]: Send ack to controller 
+00:14.284	ID:10	[10]: Send packet {command:2, destination:1} to 9
+00:14.296	ID:9	[9]: Received packet {command:2, destination:1}
+00:14.297	ID:9	[9]: Forward packet to 8
+00:14.300	ID:9	[9]: Send packet {command:2, destination:1} to 8
+00:14.315	ID:8	[8]: Received packet {command:2, destination:1}
+00:14.316	ID:8	[8]: Forward packet to 1
+00:14.319	ID:8	[8]: Send packet {command:2, destination:1} to 1
+00:14.327	ID:1	[1]: Received packet {command:2, destination:1}
+00:14.328	ID:1	Controller: Turn on light 8
+00:14.331	ID:1	[1]: Send packet {command:1, destination:8} to 8
+00:14.340	ID:8	[8]: Received packet {command:1, destination:8}
+00:14.342	ID:8	[8]: Handle command: 1
+00:14.343	ID:8	[8]: Send ack to controller 
+00:14.345	ID:8	[8]: Send packet {command:2, destination:1} to 1
+00:14.354	ID:1	[1]: Received packet {command:2, destination:1}
+00:14.355	ID:1	Controller: Turn on light 6
+00:14.358	ID:1	[1]: Send packet {command:1, destination:6} to 5
+00:14.364	ID:5	[5]: Received packet {command:1, destination:6}
+00:14.366	ID:5	[5]: Forward packet to 6
+00:14.368	ID:5	[5]: Send packet {command:1, destination:6} to 6
+00:14.383	ID:6	[6]: Received packet {command:1, destination:6}
+00:14.384	ID:6	[6]: Handle command: 1
+00:14.386	ID:6	[6]: Send ack to controller 
+00:14.388	ID:6	[6]: Send packet {command:2, destination:1} to 5
+00:14.395	ID:5	[5]: Received packet {command:2, destination:1}
+00:14.397	ID:5	[5]: Forward packet to 1
+00:14.399	ID:5	[5]: Send packet {command:2, destination:1} to 1
+00:14.411	ID:1	[1]: Received packet {command:2, destination:1}
+00:14.413	ID:1	Controller: Turn on light 4
+00:14.415	ID:1	[1]: Send packet {command:1, destination:4} to 2
+00:14.422	ID:2	[2]: Received packet {command:1, destination:4}
+00:14.423	ID:2	[2]: Forward packet to 3
+00:14.426	ID:2	[2]: Send packet {command:1, destination:4} to 3
+00:14.438	ID:3	[3]: Received packet {command:1, destination:4}
+00:14.440	ID:3	[3]: Forward packet to 4
+00:14.442	ID:3	[3]: Send packet {command:1, destination:4} to 4
+00:14.453	ID:4	[4]: Received packet {command:1, destination:4}
+00:14.454	ID:4	[4]: Handle command: 1
+00:14.455	ID:4	[4]: Send ack to controller 
+00:14.458	ID:4	[4]: Send packet {command:2, destination:1} to 3
+00:14.470	ID:3	[3]: Received packet {command:2, destination:1}
+00:14.472	ID:3	[3]: Forward packet to 2
+00:14.474	ID:3	[3]: Send packet {command:2, destination:1} to 2
+00:14.487	ID:2	[2]: Received packet {command:2, destination:1}
+00:14.488	ID:2	[2]: Forward packet to 1
+00:14.491	ID:2	[2]: Send packet {command:2, destination:1} to 1
+00:14.497	ID:1	[1]: Received packet {command:2, destination:1}
+00:14.499	ID:1	Controller: Turn on light 2
+00:14.501	ID:1	[1]: Send packet {command:1, destination:2} to 2
+00:14.514	ID:2	[2]: Received packet {command:1, destination:2}
+00:14.515	ID:2	[2]: Handle command: 1
+00:14.516	ID:2	[2]: Send ack to controller 
+00:14.519	ID:2	[2]: Send packet {command:2, destination:1} to 1
+00:14.529	ID:1	[1]: Received packet {command:2, destination:1}
+00:14.530	ID:1	Controller: Waiting state
+00:24.296	ID:1	Controller: Turn off all the lights
+00:24.297	ID:1	Controller: Turn off light 10
+00:24.300	ID:1	[1]: Send packet {command:0, destination:10} to 8
+00:24.315	ID:8	[8]: Received packet {command:0, destination:10}
+00:24.317	ID:8	[8]: Forward packet to 9
+00:24.319	ID:8	[8]: Send packet {command:0, destination:10} to 9
+00:24.329	ID:9	[9]: Received packet {command:0, destination:10}
+00:24.331	ID:9	[9]: Forward packet to 10
+00:24.334	ID:9	[9]: Send packet {command:0, destination:10} to 10
+00:24.349	ID:10	[10]: Received packet {command:0, destination:10}
+00:24.350	ID:10	[10]: Handle command: 0
+00:24.352	ID:10	[10]: Send ack to controller 
+00:24.355	ID:10	[10]: Send packet {command:2, destination:1} to 9
+00:24.366	ID:9	[9]: Received packet {command:2, destination:1}
+00:24.368	ID:9	[9]: Forward packet to 8
+00:24.370	ID:9	[9]: Send packet {command:2, destination:1} to 8
+00:24.381	ID:8	[8]: Received packet {command:2, destination:1}
+00:24.382	ID:8	[8]: Forward packet to 1
+00:24.385	ID:8	[8]: Send packet {command:2, destination:1} to 1
+00:24.395	ID:1	[1]: Received packet {command:2, destination:1}
+00:24.396	ID:1	Controller: Turn off light 8
+00:24.399	ID:1	[1]: Send packet {command:0, destination:8} to 8
+00:24.410	ID:8	[8]: Received packet {command:0, destination:8}
+00:24.411	ID:8	[8]: Handle command: 0
+00:24.413	ID:8	[8]: Send ack to controller 
+00:24.415	ID:8	[8]: Send packet {command:2, destination:1} to 1
+00:24.423	ID:1	[1]: Received packet {command:2, destination:1}
+00:24.424	ID:1	Controller: Turn off light 6
+00:24.427	ID:1	[1]: Send packet {command:0, destination:6} to 5
+00:24.438	ID:5	[5]: Received packet {command:0, destination:6}
+00:24.439	ID:5	[5]: Forward packet to 6
+00:24.442	ID:5	[5]: Send packet {command:0, destination:6} to 6
+00:24.456	ID:6	[6]: Received packet {command:0, destination:6}
+00:24.457	ID:6	[6]: Handle command: 0
+00:24.458	ID:6	[6]: Send ack to controller 
+00:24.461	ID:6	[6]: Send packet {command:2, destination:1} to 5
+00:24.470	ID:5	[5]: Received packet {command:2, destination:1}
+00:24.471	ID:5	[5]: Forward packet to 1
+00:24.474	ID:5	[5]: Send packet {command:2, destination:1} to 1
+00:24.482	ID:1	[1]: Received packet {command:2, destination:1}
+00:24.484	ID:1	Controller: Turn off light 4
+00:24.486	ID:1	[1]: Send packet {command:0, destination:4} to 2
+00:24.493	ID:2	[2]: Received packet {command:0, destination:4}
+00:24.494	ID:2	[2]: Forward packet to 3
+00:24.497	ID:2	[2]: Send packet {command:0, destination:4} to 3
+00:24.504	ID:3	[3]: Received packet {command:0, destination:4}
+00:24.506	ID:3	[3]: Forward packet to 4
+00:24.508	ID:3	[3]: Send packet {command:0, destination:4} to 4
+00:24.516	ID:4	[4]: Received packet {command:0, destination:4}
+00:24.517	ID:4	[4]: Handle command: 0
+00:24.518	ID:4	[4]: Send ack to controller 
+00:24.521	ID:4	[4]: Send packet {command:2, destination:1} to 3
+00:24.536	ID:3	[3]: Received packet {command:2, destination:1}
+00:24.537	ID:3	[3]: Forward packet to 2
+00:24.540	ID:3	[3]: Send packet {command:2, destination:1} to 2
+00:24.548	ID:2	[2]: Received packet {command:2, destination:1}
+00:24.549	ID:2	[2]: Forward packet to 1
+00:24.552	ID:2	[2]: Send packet {command:2, destination:1} to 1
+00:24.566	ID:1	[1]: Received packet {command:2, destination:1}
+00:24.567	ID:1	Controller: Turn off light 2
+00:24.569	ID:1	[1]: Send packet {command:0, destination:2} to 2
+00:24.577	ID:2	[2]: Received packet {command:0, destination:2}
+00:24.578	ID:2	[2]: Handle command: 0
+00:24.579	ID:2	[2]: Send ack to controller 
+00:24.582	ID:2	[2]: Send packet {command:2, destination:1} to 1
+00:24.590	ID:1	[1]: Received packet {command:2, destination:1}
+00:24.591	ID:1	Controller: Ready state
+00:34.359	ID:1	Controller: Start pattern Triangle (nodes: [6, 4, 7, 10] )
+00:34.361	ID:1	Controller: Turn on light 6
+00:34.364	ID:1	[1]: Send packet {command:1, destination:6} to 5
+00:34.376	ID:5	[5]: Received packet {command:1, destination:6}
+00:34.377	ID:5	[5]: Forward packet to 6
+00:34.379	ID:5	[5]: Send packet {command:1, destination:6} to 6
+00:34.392	ID:6	[6]: Received packet {command:1, destination:6}
+00:34.393	ID:6	[6]: Handle command: 1
+00:34.394	ID:6	[6]: Send ack to controller 
+00:34.397	ID:6	[6]: Send packet {command:2, destination:1} to 5
+00:34.408	ID:5	[5]: Received packet {command:2, destination:1}
+00:34.409	ID:5	[5]: Forward packet to 1
+00:34.412	ID:5	[5]: Send packet {command:2, destination:1} to 1
+00:34.427	ID:1	[1]: Received packet {command:2, destination:1}
+00:34.429	ID:1	Controller: Turn on light 4
+00:34.431	ID:1	[1]: Send packet {command:1, destination:4} to 2
+00:34.444	ID:2	[2]: Received packet {command:1, destination:4}
+00:34.445	ID:2	[2]: Forward packet to 3
+00:34.448	ID:2	[2]: Send packet {command:1, destination:4} to 3
+00:34.458	ID:3	[3]: Received packet {command:1, destination:4}
+00:34.459	ID:3	[3]: Forward packet to 4
+00:34.462	ID:3	[3]: Send packet {command:1, destination:4} to 4
+00:34.472	ID:4	[4]: Received packet {command:1, destination:4}
+00:34.473	ID:4	[4]: Handle command: 1
+00:34.474	ID:4	[4]: Send ack to controller 
+00:34.477	ID:4	[4]: Send packet {command:2, destination:1} to 3
+00:34.487	ID:3	[3]: Received packet {command:2, destination:1}
+00:34.489	ID:3	[3]: Forward packet to 2
+00:34.491	ID:3	[3]: Send packet {command:2, destination:1} to 2
+00:34.502	ID:2	[2]: Received packet {command:2, destination:1}
+00:34.503	ID:2	[2]: Forward packet to 1
+00:34.506	ID:2	[2]: Send packet {command:2, destination:1} to 1
+00:34.519	ID:1	[1]: Received packet {command:2, destination:1}
+00:34.520	ID:1	Controller: Turn on light 7
+00:34.523	ID:1	[1]: Send packet {command:1, destination:7} to 5
+00:34.535	ID:5	[5]: Received packet {command:1, destination:7}
+00:34.536	ID:5	[5]: Forward packet to 6
+00:34.539	ID:5	[5]: Send packet {command:1, destination:7} to 6
+00:34.550	ID:6	[6]: Received packet {command:1, destination:7}
+00:34.551	ID:6	[6]: Forward packet to 7
+00:34.554	ID:6	[6]: Send packet {command:1, destination:7} to 7
+00:34.563	ID:7	[7]: Received packet {command:1, destination:7}
+00:34.564	ID:7	[7]: Handle command: 1
+00:34.566	ID:7	[7]: Send ack to controller 
+00:34.568	ID:7	[7]: Send packet {command:2, destination:1} to 6
+00:34.583	ID:6	[6]: Received packet {command:2, destination:1}
+00:34.584	ID:6	[6]: Forward packet to 5
+00:34.587	ID:6	[6]: Send packet {command:2, destination:1} to 5
+00:34.600	ID:5	[5]: Received packet {command:2, destination:1}
+00:34.602	ID:5	[5]: Forward packet to 1
+00:34.604	ID:5	[5]: Send packet {command:2, destination:1} to 1
+00:34.615	ID:1	[1]: Received packet {command:2, destination:1}
+00:34.617	ID:1	Controller: Turn on light 10
+00:34.620	ID:1	[1]: Send packet {command:1, destination:10} to 8
+00:34.633	ID:8	[8]: Received packet {command:1, destination:10}
+00:34.634	ID:8	[8]: Forward packet to 9
+00:34.637	ID:8	[8]: Send packet {command:1, destination:10} to 9
+00:34.649	ID:9	[9]: Received packet {command:1, destination:10}
+00:34.650	ID:9	[9]: Forward packet to 10
+00:34.653	ID:9	[9]: Send packet {command:1, destination:10} to 10
+00:34.665	ID:10	[10]: Received packet {command:1, destination:10}
+00:34.666	ID:10	[10]: Handle command: 1
+00:34.668	ID:10	[10]: Send ack to controller 
+00:34.671	ID:10	[10]: Send packet {command:2, destination:1} to 9
+00:34.679	ID:9	[9]: Received packet {command:2, destination:1}
+00:34.681	ID:9	[9]: Forward packet to 8
+00:34.683	ID:9	[9]: Send packet {command:2, destination:1} to 8
+00:34.694	ID:8	[8]: Received packet {command:2, destination:1}
+00:34.695	ID:8	[8]: Forward packet to 1
+00:34.698	ID:8	[8]: Send packet {command:2, destination:1} to 1
+00:34.707	ID:1	[1]: Received packet {command:2, destination:1}
+00:34.707	ID:1	Controller: Waiting state
+00:44.474	ID:1	Controller: Turn off all the lights
+00:44.476	ID:1	Controller: Turn off light 6
+00:44.479	ID:1	[1]: Send packet {command:0, destination:6} to 5
+00:44.493	ID:5	[5]: Received packet {command:0, destination:6}
+00:44.494	ID:5	[5]: Forward packet to 6
+00:44.497	ID:5	[5]: Send packet {command:0, destination:6} to 6
+00:44.510	ID:6	[6]: Received packet {command:0, destination:6}
+00:44.512	ID:6	[6]: Handle command: 0
+00:44.513	ID:6	[6]: Send ack to controller 
+00:44.516	ID:6	[6]: Send packet {command:2, destination:1} to 5
+00:44.528	ID:5	[5]: Received packet {command:2, destination:1}
+00:44.529	ID:5	[5]: Forward packet to 1
+00:44.532	ID:5	[5]: Send packet {command:2, destination:1} to 1
+00:44.541	ID:1	[1]: Received packet {command:2, destination:1}
+00:44.542	ID:1	Controller: Turn off light 4
+00:44.545	ID:1	[1]: Send packet {command:0, destination:4} to 2
+00:44.554	ID:2	[2]: Received packet {command:0, destination:4}
+00:44.555	ID:2	[2]: Forward packet to 3
+00:44.558	ID:2	[2]: Send packet {command:0, destination:4} to 3
+00:44.565	ID:3	[3]: Received packet {command:0, destination:4}
+00:44.566	ID:3	[3]: Forward packet to 4
+00:44.569	ID:3	[3]: Send packet {command:0, destination:4} to 4
+00:44.575	ID:4	[4]: Received packet {command:0, destination:4}
+00:44.576	ID:4	[4]: Handle command: 0
+00:44.578	ID:4	[4]: Send ack to controller 
+00:44.580	ID:4	[4]: Send packet {command:2, destination:1} to 3
+00:44.588	ID:3	[3]: Received packet {command:2, destination:1}
+00:44.590	ID:3	[3]: Forward packet to 2
+00:44.592	ID:3	[3]: Send packet {command:2, destination:1} to 2
+00:44.599	ID:2	[2]: Received packet {command:2, destination:1}
+00:44.600	ID:2	[2]: Forward packet to 1
+00:44.603	ID:2	[2]: Send packet {command:2, destination:1} to 1
+00:44.615	ID:1	[1]: Received packet {command:2, destination:1}
+00:44.616	ID:1	Controller: Turn off light 7
+00:44.619	ID:1	[1]: Send packet {command:0, destination:7} to 5
+00:44.628	ID:5	[5]: Received packet {command:0, destination:7}
+00:44.629	ID:5	[5]: Forward packet to 6
+00:44.632	ID:5	[5]: Send packet {command:0, destination:7} to 6
+00:44.646	ID:6	[6]: Received packet {command:0, destination:7}
+00:44.647	ID:6	[6]: Forward packet to 7
+00:44.650	ID:6	[6]: Send packet {command:0, destination:7} to 7
+00:44.661	ID:7	[7]: Received packet {command:0, destination:7}
+00:44.662	ID:7	[7]: Handle command: 0
+00:44.663	ID:7	[7]: Send ack to controller 
+00:44.666	ID:7	[7]: Send packet {command:2, destination:1} to 6
+00:44.681	ID:6	[6]: Received packet {command:2, destination:1}
+00:44.683	ID:6	[6]: Forward packet to 5
+00:44.685	ID:6	[6]: Send packet {command:2, destination:1} to 5
+00:44.699	ID:5	[5]: Received packet {command:2, destination:1}
+00:44.700	ID:5	[5]: Forward packet to 1
+00:44.702	ID:5	[5]: Send packet {command:2, destination:1} to 1
+00:44.714	ID:1	[1]: Received packet {command:2, destination:1}
+00:44.715	ID:1	Controller: Turn off light 10
+00:44.718	ID:1	[1]: Send packet {command:0, destination:10} to 8
+00:44.728	ID:8	[8]: Received packet {command:0, destination:10}
+00:44.730	ID:8	[8]: Forward packet to 9
+00:44.732	ID:8	[8]: Send packet {command:0, destination:10} to 9
+00:44.747	ID:9	[9]: Received packet {command:0, destination:10}
+00:44.748	ID:9	[9]: Forward packet to 10
+00:44.751	ID:9	[9]: Send packet {command:0, destination:10} to 10
+00:44.763	ID:10	[10]: Received packet {command:0, destination:10}
+00:44.764	ID:10	[10]: Handle command: 0
+00:44.766	ID:10	[10]: Send ack to controller 
+00:44.768	ID:10	[10]: Send packet {command:2, destination:1} to 9
+00:44.779	ID:9	[9]: Received packet {command:2, destination:1}
+00:44.781	ID:9	[9]: Forward packet to 8
+00:44.783	ID:9	[9]: Send packet {command:2, destination:1} to 8
+00:44.794	ID:8	[8]: Received packet {command:2, destination:1}
+00:44.796	ID:8	[8]: Forward packet to 1
+00:44.798	ID:8	[8]: Send packet {command:2, destination:1} to 1
+00:44.814	ID:1	[1]: Received packet {command:2, destination:1}
+00:44.815	ID:1	Controller: Ready state
+00:54.584	ID:1	Controller: Start pattern Letter M (nodes: [10, 9, 8, 6, 4, 3, 2] )
+00:54.586	ID:1	Controller: Turn on light 10
+00:54.589	ID:1	[1]: Send packet {command:1, destination:10} to 8
+00:54.601	ID:8	[8]: Received packet {command:1, destination:10}
+00:54.602	ID:8	[8]: Forward packet to 9
+00:54.605	ID:8	[8]: Send packet {command:1, destination:10} to 9
+00:54.612	ID:9	[9]: Received packet {command:1, destination:10}
+00:54.613	ID:9	[9]: Forward packet to 10
+00:54.616	ID:9	[9]: Send packet {command:1, destination:10} to 10
+00:54.631	ID:10	[10]: Received packet {command:1, destination:10}
+00:54.632	ID:10	[10]: Handle command: 1
+00:54.634	ID:10	[10]: Send ack to controller 
+00:54.637	ID:10	[10]: Send packet {command:2, destination:1} to 9
+00:54.644	ID:9	[9]: Received packet {command:2, destination:1}
+00:54.645	ID:9	[9]: Forward packet to 8
+00:54.648	ID:9	[9]: Send packet {command:2, destination:1} to 8
+00:54.659	ID:8	[8]: Received packet {command:2, destination:1}
+00:54.660	ID:8	[8]: Forward packet to 1
+00:54.663	ID:8	[8]: Send packet {command:2, destination:1} to 1
+00:54.675	ID:1	[1]: Received packet {command:2, destination:1}
+00:54.676	ID:1	Controller: Turn on light 9
+00:54.679	ID:1	[1]: Send packet {command:1, destination:9} to 8
+00:54.686	ID:8	[8]: Received packet {command:1, destination:9}
+00:54.687	ID:8	[8]: Forward packet to 9
+00:54.690	ID:8	[8]: Send packet {command:1, destination:9} to 9
+00:54.704	ID:9	[9]: Received packet {command:1, destination:9}
+00:54.705	ID:9	[9]: Handle command: 1
+00:54.707	ID:9	[9]: Send ack to controller 
+00:54.709	ID:9	[9]: Send packet {command:2, destination:1} to 8
+00:54.716	ID:8	[8]: Received packet {command:2, destination:1}
+00:54.718	ID:8	[8]: Forward packet to 1
+00:54.720	ID:8	[8]: Send packet {command:2, destination:1} to 1
+00:54.730	ID:1	[1]: Received packet {command:2, destination:1}
+00:54.731	ID:1	Controller: Turn on light 8
+00:54.734	ID:1	[1]: Send packet {command:1, destination:8} to 8
+00:54.742	ID:8	[8]: Received packet {command:1, destination:8}
+00:54.744	ID:8	[8]: Handle command: 1
+00:54.745	ID:8	[8]: Send ack to controller 
+00:54.748	ID:8	[8]: Send packet {command:2, destination:1} to 1
+00:54.763	ID:1	[1]: Received packet {command:2, destination:1}
+00:54.764	ID:1	Controller: Turn on light 6
+00:54.767	ID:1	[1]: Send packet {command:1, destination:6} to 5
+00:54.774	ID:5	[5]: Received packet {command:1, destination:6}
+00:54.776	ID:5	[5]: Forward packet to 6
+00:54.778	ID:5	[5]: Send packet {command:1, destination:6} to 6
+00:54.793	ID:6	[6]: Received packet {command:1, destination:6}
+00:54.794	ID:6	[6]: Handle command: 1
+00:54.795	ID:6	[6]: Send ack to controller 
+00:54.798	ID:6	[6]: Send packet {command:2, destination:1} to 5
+00:54.812	ID:5	[5]: Received packet {command:2, destination:1}
+00:54.813	ID:5	[5]: Forward packet to 1
+00:54.816	ID:5	[5]: Send packet {command:2, destination:1} to 1
+00:54.826	ID:1	[1]: Received packet {command:2, destination:1}
+00:54.827	ID:1	Controller: Turn on light 4
+00:54.830	ID:1	[1]: Send packet {command:1, destination:4} to 2
+00:54.842	ID:2	[2]: Received packet {command:1, destination:4}
+00:54.843	ID:2	[2]: Forward packet to 3
+00:54.846	ID:2	[2]: Send packet {command:1, destination:4} to 3
+00:54.858	ID:3	[3]: Received packet {command:1, destination:4}
+00:54.859	ID:3	[3]: Forward packet to 4
+00:54.862	ID:3	[3]: Send packet {command:1, destination:4} to 4
+00:54.869	ID:4	[4]: Received packet {command:1, destination:4}
+00:54.870	ID:4	[4]: Handle command: 1
+00:54.872	ID:4	[4]: Send ack to controller 
+00:54.874	ID:4	[4]: Send packet {command:2, destination:1} to 3
+00:54.885	ID:3	[3]: Received packet {command:2, destination:1}
+00:54.886	ID:3	[3]: Forward packet to 2
+00:54.889	ID:3	[3]: Send packet {command:2, destination:1} to 2
+00:54.897	ID:2	[2]: Received packet {command:2, destination:1}
+00:54.898	ID:2	[2]: Forward packet to 1
+00:54.901	ID:2	[2]: Send packet {command:2, destination:1} to 1
+00:54.912	ID:1	[1]: Received packet {command:2, destination:1}
+00:54.913	ID:1	Controller: Turn on light 3
+00:54.916	ID:1	[1]: Send packet {command:1, destination:3} to 2
+00:54.924	ID:2	[2]: Received packet {command:1, destination:3}
+00:54.925	ID:2	[2]: Forward packet to 3
+00:54.927	ID:2	[2]: Send packet {command:1, destination:3} to 3
+00:54.943	ID:3	[3]: Received packet {command:1, destination:3}
+00:54.944	ID:3	[3]: Handle command: 1
+00:54.945	ID:3	[3]: Send ack to controller 
+00:54.948	ID:3	[3]: Send packet {command:2, destination:1} to 2
+00:54.956	ID:2	[2]: Received packet {command:2, destination:1}
+00:54.957	ID:2	[2]: Forward packet to 1
+00:54.960	ID:2	[2]: Send packet {command:2, destination:1} to 1
+00:54.975	ID:1	[1]: Received packet {command:2, destination:1}
+00:54.976	ID:1	Controller: Turn on light 2
+00:54.979	ID:1	[1]: Send packet {command:1, destination:2} to 2
+00:54.986	ID:2	[2]: Received packet {command:1, destination:2}
+00:54.988	ID:2	[2]: Handle command: 1
+00:54.989	ID:2	[2]: Send ack to controller 
+00:54.991	ID:2	[2]: Send packet {command:2, destination:1} to 1
+00:54.999	ID:1	[1]: Received packet {command:2, destination:1}
+00:55.000	ID:1	Controller: Waiting state
+01:04.766	ID:1	Controller: Turn off all the lights
+01:04.768	ID:1	Controller: Turn off light 10
+01:04.771	ID:1	[1]: Send packet {command:0, destination:10} to 8
+01:04.778	ID:8	[8]: Received packet {command:0, destination:10}
+01:04.779	ID:8	[8]: Forward packet to 9
+01:04.782	ID:8	[8]: Send packet {command:0, destination:10} to 9
+01:04.792	ID:9	[9]: Received packet {command:0, destination:10}
+01:04.793	ID:9	[9]: Forward packet to 10
+01:04.796	ID:9	[9]: Send packet {command:0, destination:10} to 10
+01:04.807	ID:10	[10]: Received packet {command:0, destination:10}
+01:04.808	ID:10	[10]: Handle command: 0
+01:04.809	ID:10	[10]: Send ack to controller 
+01:04.812	ID:10	[10]: Send packet {command:2, destination:1} to 9
+01:04.825	ID:9	[9]: Received packet {command:2, destination:1}
+01:04.826	ID:9	[9]: Forward packet to 8
+01:04.829	ID:9	[9]: Send packet {command:2, destination:1} to 8
+01:04.837	ID:8	[8]: Received packet {command:2, destination:1}
+01:04.838	ID:8	[8]: Forward packet to 1
+01:04.841	ID:8	[8]: Send packet {command:2, destination:1} to 1
+01:04.852	ID:1	[1]: Received packet {command:2, destination:1}
+01:04.853	ID:1	Controller: Turn off light 9
+01:04.856	ID:1	[1]: Send packet {command:0, destination:9} to 8
+01:04.865	ID:8	[8]: Received packet {command:0, destination:9}
+01:04.866	ID:8	[8]: Forward packet to 9
+01:04.869	ID:8	[8]: Send packet {command:0, destination:9} to 9
+01:04.882	ID:9	[9]: Received packet {command:0, destination:9}
+01:04.884	ID:9	[9]: Handle command: 0
+01:04.885	ID:9	[9]: Send ack to controller 
+01:04.887	ID:9	[9]: Send packet {command:2, destination:1} to 8
+01:04.899	ID:8	[8]: Received packet {command:2, destination:1}
+01:04.900	ID:8	[8]: Forward packet to 1
+01:04.903	ID:8	[8]: Send packet {command:2, destination:1} to 1
+01:04.911	ID:1	[1]: Received packet {command:2, destination:1}
+01:04.913	ID:1	Controller: Turn off light 8
+01:04.915	ID:1	[1]: Send packet {command:0, destination:8} to 8
+01:04.924	ID:8	[8]: Received packet {command:0, destination:8}
+01:04.925	ID:8	[8]: Handle command: 0
+01:04.927	ID:8	[8]: Send ack to controller 
+01:04.929	ID:8	[8]: Send packet {command:2, destination:1} to 1
+01:04.937	ID:1	[1]: Received packet {command:2, destination:1}
+01:04.938	ID:1	Controller: Turn off light 6
+01:04.941	ID:1	[1]: Send packet {command:0, destination:6} to 5
+01:04.951	ID:5	[5]: Received packet {command:0, destination:6}
+01:04.952	ID:5	[5]: Forward packet to 6
+01:04.955	ID:5	[5]: Send packet {command:0, destination:6} to 6
+01:04.964	ID:6	[6]: Received packet {command:0, destination:6}
+01:04.965	ID:6	[6]: Handle command: 0
+01:04.966	ID:6	[6]: Send ack to controller 
+01:04.969	ID:6	[6]: Send packet {command:2, destination:1} to 5
+01:04.983	ID:5	[5]: Received packet {command:2, destination:1}
+01:04.984	ID:5	[5]: Forward packet to 1
+01:04.987	ID:5	[5]: Send packet {command:2, destination:1} to 1
+01:04.998	ID:1	[1]: Received packet {command:2, destination:1}
+01:04.999	ID:1	Controller: Turn off light 4
+01:05.002	ID:1	[1]: Send packet {command:0, destination:4} to 2
+01:05.017	ID:2	[2]: Received packet {command:0, destination:4}
+01:05.018	ID:2	[2]: Forward packet to 3
+01:05.021	ID:2	[2]: Send packet {command:0, destination:4} to 3
+01:05.036	ID:3	[3]: Received packet {command:0, destination:4}
+01:05.037	ID:3	[3]: Forward packet to 4
+01:05.040	ID:3	[3]: Send packet {command:0, destination:4} to 4
+01:05.048	ID:4	[4]: Received packet {command:0, destination:4}
+01:05.050	ID:4	[4]: Handle command: 0
+01:05.051	ID:4	[4]: Send ack to controller 
+01:05.054	ID:4	[4]: Send packet {command:2, destination:1} to 3
+01:05.067	ID:3	[3]: Received packet {command:2, destination:1}
+01:05.068	ID:3	[3]: Forward packet to 2
+01:05.071	ID:3	[3]: Send packet {command:2, destination:1} to 2
+01:05.079	ID:2	[2]: Received packet {command:2, destination:1}
+01:05.081	ID:2	[2]: Forward packet to 1
+01:05.083	ID:2	[2]: Send packet {command:2, destination:1} to 1
+01:05.093	ID:1	[1]: Received packet {command:2, destination:1}
+01:05.095	ID:1	Controller: Turn off light 3
+01:05.097	ID:1	[1]: Send packet {command:0, destination:3} to 2
+01:05.105	ID:2	[2]: Received packet {command:0, destination:3}
+01:05.106	ID:2	[2]: Forward packet to 3
+01:05.109	ID:2	[2]: Send packet {command:0, destination:3} to 3
+01:05.117	ID:3	[3]: Received packet {command:0, destination:3}
+01:05.118	ID:3	[3]: Handle command: 0
+01:05.119	ID:3	[3]: Send ack to controller 
+01:05.122	ID:3	[3]: Send packet {command:2, destination:1} to 2
+01:05.129	ID:2	[2]: Received packet {command:2, destination:1}
+01:05.130	ID:2	[2]: Forward packet to 1
+01:05.133	ID:2	[2]: Send packet {command:2, destination:1} to 1
+01:05.146	ID:1	[1]: Received packet {command:2, destination:1}
+01:05.147	ID:1	Controller: Turn off light 2
+01:05.150	ID:1	[1]: Send packet {command:0, destination:2} to 2
+01:05.164	ID:2	[2]: Received packet {command:0, destination:2}
+01:05.165	ID:2	[2]: Handle command: 0
+01:05.166	ID:2	[2]: Send ack to controller 
+01:05.169	ID:2	[2]: Send packet {command:2, destination:1} to 1
+01:05.181	ID:1	[1]: Received packet {command:2, destination:1}
+01:05.182	ID:1	Controller: Ready state
+
